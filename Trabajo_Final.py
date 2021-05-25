@@ -1,4 +1,4 @@
-#Importar librer√≠as.
+#Importar librer√É¬≠as.
 import pandas as p
 from matplotlib import pyplot as pl
 import geopandas as gp
@@ -12,7 +12,7 @@ def suma_local():
 def suma_visitante():
     suma_v=Arch['goles_visita'].sum()
     return suma_v
-#Graficar goles locales VS visitantes. UniÛn 1 y 2
+#Graficar goles locales VS visitantes. Uni√≥n 1 y 2
 def graf_gol():
     x=['Locales', 'Visitantes']
     y=[suma_local(),suma_visitante()]
@@ -38,7 +38,7 @@ def suma_total():
 def graf_suma_total(x,y):
     pl.scatter(x,y,color='purple')
     pl.title('Goles totales por partido.')
-    pl.xlabel('N˙mero de partido.')
+    pl.xlabel('N√∫mero de partido.')
     pl.ylabel('Goles.')
     pl.show
 #Goles locales por campeonato. 4
@@ -120,7 +120,7 @@ def gol_t_camp():
     pl.ylabel('Goles.')
     pl.grid(True)
     pl.show
-#Cantidad de partidos por selecciÛn. 7
+#Cantidad de partidos por selecci√≥n. 7
 def partidos_s():
     tags=[1,2,3,4,5,6,7,8,9,10,11,12]
     campeonatos=[]
@@ -137,15 +137,15 @@ def partidos_s():
             search=s1[j]
             if search==comp:
                 cont=cont+1
-        print(comp,'participÛ en',cont,'campeonatos.')
+        print(comp,'particip√≥ en',cont,'campeonatos.')
         campeonatos.append(cont)
     pl.bar(tags,campeonatos,color='purple')
-    pl.title('Campeonatos por selecciÛn.')
+    pl.title('Campeonatos por selecci√≥n.')
     pl.xlabel('J     AR    BR    CO    PA    BO    EC    CH    UR    PE    VE    Q')
     pl.ylabel('Cantidad de campeonatos')
     pl.grid(True)
     pl.show
-#Partidos local y visitante por selecciÛn. 8
+#Partidos local y visitante por selecci√≥n. 8
 def partido_loc_vis():
     local=[]
     visitante=[]
@@ -168,7 +168,7 @@ def partido_loc_vis():
                         cont2=cont2+1
             visitante.append(cont2)
             local.append(cont)
-            print(comp,'jugÛ',cont,'veces como local, y',cont2,'como visitante.')
+            print(comp,'jug√≥',cont,'veces como local, y',cont2,'como visitante.')
     fig,ax=pl.subplots()
     ax.barh(sel,local,color='purple',label='Partidos locales.')
     ax.barh(sel,visitante,color='orange',left=local,label='Partidos visitantes.')
@@ -176,7 +176,7 @@ def partido_loc_vis():
     ax.legend(loc=(1.1,0.8))
     pl.grid(True)
     pl.show()
-#SelecciÛn con m·s goles. 9
+#Selecci√≥n con m√°s goles. 9
 def mas_goles():
     col=Arch.iloc[:,1]
     col2=Arch.iloc[:,3]
@@ -201,8 +201,8 @@ def mas_goles():
         if suma>mayor:
             mayor=suma
             sel_n=i
-    print('La selecciÛn con m·s goles fue',sel_n,'con',mayor,'goles en total.')
-#SelecciÛn con m·s goles en contra. 10
+    print('La selecci√≥n con m√°s goles fue',sel_n,'con',mayor,'goles en total.')
+#Selecci√≥n con m√°s goles en contra. 10
 def mas_goles_contra():
     col=Arch.iloc[:,1]
     col2=Arch.iloc[:,4]
@@ -227,10 +227,10 @@ def mas_goles_contra():
         if suma>mayor:
             mayor=suma
             sel_n=i
-    print('La selecciÛn con m·s goles en contra fue',sel_n,'con',mayor,'goles en total.')
-#Partidos de selecciÛn por ingreso de datos. 11
+    print('La selecci√≥n con m√°s goles en contra fue',sel_n,'con',mayor,'goles en total.')
+#Partidos de selecci√≥n por ingreso de datos. 11
 def ingreso_sel():
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     col_n1=Arch.iloc[:,1];col_n2=Arch.iloc[:,2];fecha=Arch.iloc[:,0];torneo=Arch.iloc[:,5]
     s1=list(col_n1);s2=list(col_n2);fecha=list(fecha);torneo=list(torneo)
     for i in range(len(s1)):
@@ -239,7 +239,7 @@ def ingreso_sel():
         fec_p=None
         loc=s1[i];vis=s2[i]
         while seleccion not in s1 or seleccion not in s2:
-            seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+            seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
         if loc==seleccion:
             cont=vis
         elif vis==seleccion:
@@ -247,34 +247,34 @@ def ingreso_sel():
         if loc==seleccion or vis==seleccion:
             fec_p=fecha[i]
             tor_p=torneo[i]
-            print('El',fec_p,seleccion,'jugÛ contra',cont,'en un torneo de',tor_p)
+            print('El',fec_p,seleccion,'jug√≥ contra',cont,'en un torneo de',tor_p)
 #Partidos local-visitante por ingreso de datos. 12
 def loc_vis():
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];s1=list(nomb);s2=list(nomb2)
     cont_local=0;cont_visi=0
     for i in range(len(s1)):
         loc=s1[i];vis=s2[i]
         while seleccion not in s1 or seleccion not in s2:
-            seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+            seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
         if loc==seleccion:
             cont_local=cont_local+1
         elif vis==seleccion:
             cont_visi=cont_visi+1
-    print('La selecciÛn de',seleccion,'jugÛ',cont_local,'partidos como local, y',cont_visi,'como visitante.')
+    print('La selecci√≥n de',seleccion,'jug√≥',cont_local,'partidos como local, y',cont_visi,'como visitante.')
 #Ciudades donde se ha jugado por ingreso de datos. 13
 def ciudades():
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];ciud=Arch.iloc[:,6]
     s1=list(nomb);s2=list(nomb2);ciudad=list(ciud)
     for i in range(len(s1)):
         comp1=s1[i];comp2=s2[i];comp_c=ciudad[i]
         while seleccion not in s1 or seleccion not in s2:
-            seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+            seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
         if comp1==seleccion:
-            print(seleccion,'jugÛ como local en',comp_c)
+            print(seleccion,'jug√≥ como local en',comp_c)
         elif comp2==seleccion:
-            print(seleccion,'jugÛ como visitante en',comp_c)
+            print(seleccion,'jug√≥ como visitante en',comp_c)
 
 #14 Repetido.
 
@@ -282,9 +282,9 @@ def ciudades():
 def partidos_general():
     nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];torneo=Arch.iloc[:,5];win_loc=Arch.iloc[:,10];win_vis=Arch.iloc[:,11]
     s1=list(nomb);s2=list(nomb2);tor=list(torneo);win_l=list(win_loc);win_v=list(win_vis)
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     while seleccion not in s1 or seleccion not in s2:
-        seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+        seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
     torneo=set(tor)
     cont_w=0
     cont_l=0
@@ -300,15 +300,15 @@ def partidos_general():
                     cont_l=cont_l+1
                 elif comp2==seleccion and comp_wl==1:
                     cont_l=cont_l+1
-        print('En el torneo de',j,'la selecciÛn de',seleccion,'ganÛ',cont_w,'partidos y perdiÛ',cont_l,'pardidos.')
-    print('La selecciÛn de',seleccion,'ganÛ un total de',cont_w,'partidos y perdiÛ un total de',cont_l,'partidos.')
-#Partidos, goles, por selecciÛn. 16
+        print('En el torneo de',j,'la selecci√≥n de',seleccion,'gan√≥',cont_w,'partidos y perdi√≥',cont_l,'pardidos.')
+    print('La selecci√≥n de',seleccion,'gan√≥ un total de',cont_w,'partidos y perdi√≥ un total de',cont_l,'partidos.')
+#Partidos, goles, por selecci√≥n. 16
 def todo_sobre_goles():
     nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];gol=Arch.iloc[:,3];gol2=Arch.iloc[:,4]
     s1=list(nomb);s2=list(nomb2);goles=list(gol);goles2=list(gol2)
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     while seleccion not in s1 or seleccion not in s2:
-        seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+        seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
     cont_p=0
     cont_w=0
     cont_l=0
@@ -333,8 +333,8 @@ def todo_sobre_goles():
                 cont_d=cont_d+1
             else:
                 cont_l=cont_l+1
-    print('La selecciÛn de',seleccion,'ganÛ',cont_w,'empatÛ',cont_d,'y perdiÛ',cont_l,'partidos con',gol,'goles a favor, y',gol_rival,'goles en contra.')
-#Mejor selecciÛn por ranking. 17
+    print('La selecci√≥n de',seleccion,'gan√≥',cont_w,'empat√≥',cont_d,'y perdi√≥',cont_l,'partidos con',gol,'goles a favor, y',gol_rival,'goles en contra.')
+#Mejor selecci√≥n por ranking. 17
 def mejor_seleccion():
     nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];rank_loc=Arch.iloc[:,12];rank_vis=Arch.iloc[:,14];tor=Arch.iloc[:,5]
     s1=list(nomb);s2=list(nomb2);rank_lo=list(rank_loc);rank_vi=list(rank_vis);torneo=list(tor)
@@ -354,36 +354,36 @@ def mejor_seleccion():
                 if rank2<rank_visit:
                     mejor_v=comp2
                     rank_visit=rank2
-        print('Seg˙n el campeonato de',j,'la selecciÛn de',mejor_l,'es el mejor equipo local de la lista con el ranking',rank_local,', y la selecciÛn de',mejor_v,'es el mejor equipo visitante de la lista con el ranking',rank_visit,'\n**************************************************************')
+        print('Seg√∫n el campeonato de',j,'la selecci√≥n de',mejor_l,'es el mejor equipo local de la lista con el ranking',rank_local,', y la selecci√≥n de',mejor_v,'es el mejor equipo visitante de la lista con el ranking',rank_visit,'\n**************************************************************')
 #Partidos a lo largo del tiempo. 18
-def partidos_aÒos():
+def partidos_a√±os():
     fecha=Arch.iloc[:,0];nomb=Arch.iloc[:,1];nomb2=Arch.iloc[:,2];resultado=Arch.iloc[:,10];resultado2=Arch.iloc[:,11]
-    aÒo=list(fecha);s1=list(nomb);s2=list(nomb2);win=list(resultado);lose=list(resultado2)
-    seleccion=input('Ingrese el nombre de la selecciÛn que desea buscar: ')
+    a√±o=list(fecha);s1=list(nomb);s2=list(nomb2);win=list(resultado);lose=list(resultado2)
+    seleccion=input('Ingrese el nombre de la selecci√≥n que desea buscar: ')
     fechas=[]
     victorias=0
     derrotas=0
     partidos=[]
     while seleccion not in s1 and seleccion not in s2:
-        seleccion=input('Esa selecciÛn no est· registrada en este programa, intente con otra: ')
+        seleccion=input('Esa selecci√≥n no est√° registrada en este programa, intente con otra: ')
     for i in range(len(s1)):
-        aÒos=aÒo[i];comp1=s1[i];comp2=s2[i];comp_win=win[i];comp_lose=lose[i]
+        a√±os=a√±o[i];comp1=s1[i];comp2=s2[i];comp_win=win[i];comp_lose=lose[i]
         if comp1==seleccion or comp2==seleccion:
             if comp_win==1 and comp1==seleccion:
                 victorias=victorias+1
-                print('En la fecha',aÒos,'la selecciÛn de',comp1,'ganÛ el partido contra la selecciÛn de',comp2)
+                print('En la fecha',a√±os,'la selecci√≥n de',comp1,'gan√≥ el partido contra la selecci√≥n de',comp2)
             elif comp_lose==1 and comp1==seleccion:
                 derrotas=derrotas+1
-                print('En la fecha',aÒos,'la selecciÛn de',comp1,'perdiÛ el partido contra la selecciÛn de',comp2)
+                print('En la fecha',a√±os,'la selecci√≥n de',comp1,'perdi√≥ el partido contra la selecci√≥n de',comp2)
             elif comp_win==1 and comp2==seleccion:
                 victorias=victorias+1
-                print('En la fecha',aÒos,'la selecciÛn de',comp2,'ganÛ el partido contra la selecciÛn de',comp1)
+                print('En la fecha',a√±os,'la selecci√≥n de',comp2,'gan√≥ el partido contra la selecci√≥n de',comp1)
             elif comp_lose==1 and comp2==seleccion:
                 derrotas=derrotas+1
-                print('En la fecha',aÒos,'la selecciÛn de',comp2,'perdiÛ el partido contra la selecciÛn de',comp1)
+                print('En la fecha',a√±os,'la selecci√≥n de',comp2,'perdi√≥ el partido contra la selecci√≥n de',comp1)
             elif comp_lose==0 and comp_win==0:
-                print('En la fecha',aÒos,'la selecciÛn de',comp1,'empatÛ el partido contra la selecciÛn de',comp2)
-            dateTimeObj=aÒos
+                print('En la fecha',a√±os,'la selecci√≥n de',comp1,'empat√≥ el partido contra la selecci√≥n de',comp2)
+            dateTimeObj=a√±os
             dateStr = dateTimeObj.strftime("%Y")
             dateStr=int(dateStr)
             fechas.append(dateStr)
@@ -394,7 +394,7 @@ def partidos_aÒos():
         if b==0:
             excep.append(j)
             fechas.append(j)    
-    aÒos_totales=set(fechas);aÒos_total=list(aÒos_totales)
+    a√±os_totales=set(fechas);a√±os_total=list(a√±os_totales)
     for h in range(1993,2019,1):
         eliminacion=h-1993
         par=fechas.count(h)
@@ -402,20 +402,20 @@ def partidos_aÒos():
             partidos.append(par)
         else:
             partidos.insert(eliminacion,0)
-    pl.bar(aÒos_total,partidos,color='purple')
-    pl.title('Partidos de la selecciÛn')
+    pl.bar(a√±os_total,partidos,color='purple')
+    pl.title('Partidos de la selecci√≥n')
     pl.ylabel('Partidos.')
     pl.xlabel('Fecha.')
     pl.grid(True)
     pl.show
 
-#Men˙.
+#Men√∫.
 def menu():
-    print('Men˙ de opciones.\n\t 1. Cantidad total de los goles locales.\n\t 2. Cantidad total de los goles visitantes.\n\t 3. Cantidad total de goles en todos los partidos.\n\t 4. Cantidad de goles por equipos locales por campeonato.\n\t 5. Cantidad de goles por equipos visitantes por campeonato.\n\t 6. Cantidad de goles por campeonato.\n\t 7. Gr·fico de cantidad de partidos por selecciÛn.\n\t 8. Gr·fico de partidos locales y visitantes por selecciÛn.\n\t 9. SelecciÛn con m·s goles por campeonato.\n\t10. SelecciÛn con m·s goles en contra por campeonato.')
-    print('\t11. Partidos jugados de selecciÛn a elegir.\n\t12. Partidos locales y visitantes de selecciÛn a elegir.\n\t13. Ciudades donde ha jugado una selecciÛn a elegir.\n\t14. Partidos ganados y perdidos de selecciÛn a elegir.\n\t15. InformaciÛn sobre partidos jugados por una selecciÛn a elegir.\n\t16. Mejor equipo valorado por campeonato.\n\t17. fechas de partidos jugados por una selecciÛn a elegir.\n\t18. Mapa de partidos(incompleto)')
-    eleccion=int(input('Ingrese el n˙mero correspondiente a la acciÛn que desea realizar: '))
+    print('Men√∫ de opciones.\n\t 1. Cantidad total de los goles locales.\n\t 2. Cantidad total de los goles visitantes.\n\t 3. Cantidad total de goles en todos los partidos.\n\t 4. Cantidad de goles por equipos locales por campeonato.\n\t 5. Cantidad de goles por equipos visitantes por campeonato.\n\t 6. Cantidad de goles por campeonato.\n\t 7. Gr√°fico de cantidad de partidos por selecci√≥n.\n\t 8. Gr√°fico de partidos locales y visitantes por selecci√≥n.\n\t 9. Selecci√≥n con m√°s goles por campeonato.\n\t10. Selecci√≥n con m√°s goles en contra por campeonato.')
+    print('\t11. Partidos jugados de selecci√≥n a elegir.\n\t12. Partidos locales y visitantes de selecci√≥n a elegir.\n\t13. Ciudades donde ha jugado una selecci√≥n a elegir.\n\t14. Partidos ganados y perdidos de selecci√≥n a elegir.\n\t15. Informaci√≥n sobre partidos jugados por una selecci√≥n a elegir.\n\t16. Mejor equipo valorado por campeonato.\n\t17. fechas de partidos jugados por una selecci√≥n a elegir.\n\t18. Mapa de partidos(incompleto)')
+    eleccion=int(input('Ingrese el n√∫mero correspondiente a la acci√≥n que desea realizar: '))
     while eleccion<1 or eleccion>18:
-        eleccion=int(input('Ingrese una opciÛn v·lida: '))
+        eleccion=int(input('Ingrese una opci√≥n v√°lida: '))
     if eleccion==1:
         print('La cantidad total de goles locales fue:',suma_local())
         graf_gol()
@@ -451,8 +451,8 @@ def menu():
     elif eleccion==16:
         mejor_seleccion()
     elif eleccion==17:
-        partidos_aÒos()
+        partidos_a√±os()
     elif eleccion==18:
-        print('Mapa en construcciÛn, estar· disponible pronto.')
+        print('Mapa en construcci√≥n, estar√° disponible pronto.')
     print('*******************************************************************')
 menu()
