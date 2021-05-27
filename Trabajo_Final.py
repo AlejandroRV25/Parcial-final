@@ -1,4 +1,4 @@
-#Importar librerÃ­as.
+#Importar librerías.
 import pandas as p
 from matplotlib import pyplot as pl
 import geopandas as gp
